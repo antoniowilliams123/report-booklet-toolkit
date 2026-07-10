@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "report-booklet-toolkit"
+version = "0.1.0"
+description = "Print-safe, hyperlinked multi-page PDF report assembly from rendered pages"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Tony Williams" }]
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+    "img2pdf>=0.5",
+    "pymupdf>=1.24",
+    "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.setuptools]
+packages = ["booklet"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
